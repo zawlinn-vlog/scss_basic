@@ -22,6 +22,9 @@ What I use packages are &mdash;
 - What pseudo-elements and pseudo-classes are:
 - How and why to use the `::after` pseudo-element;
 - How to create a creative hover animation effect using the `transition` property
+- How and why to use `rem` units in our project;
+- A great workflow for converting `px` to `rem`.
+- How to use the BEM method in practice
 
 ```scss
 //  COLORs
