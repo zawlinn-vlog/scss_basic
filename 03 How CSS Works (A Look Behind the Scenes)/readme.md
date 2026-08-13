@@ -260,7 +260,7 @@ header {
           Yes                           NO
            |                             |
     Specified Value               Is the property inherited?
-                       =                      (specific to each property)
+          =                      (specific to each property)
     Cascaded value                                          \
                                                             Yes
                                                              |

@@ -40,6 +40,14 @@ What I use packages are &mdash;
 
 bennettfeely.com/clippy
 
+## NODE.js
+
+Allows developers to write and run JavaScript applications on the server. Developers started using node.js to also write tools to help them with `local web development`.
+
+## NPM
+
+NPM is a simple command line interface that allows developers to `install and manage packages` on their local computers. There are all kinds of open-source `tools`, `libraries and frameworks` needed for modern development. Modern web developement could simply not exist withouta package manager.
+
 <!-- TODO: Add last video link -->
 
 📫 Reach me out!
