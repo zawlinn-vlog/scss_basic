@@ -55,7 +55,7 @@ web performance ဆိုတာ desktop site ပဲဖြစ်ဖြစ် mobi
 
 ## What Happens to CSS When We Load Up a Webpage?
 
-![CSS parse](./img/01.png)
+![CSS Parse](./assets/img/01.png)
 
 1. ပထမဆုံး HTML ကို စတင် load လုပ်တယ်။ ပီတဲ့အခါမှာ code တွေကို parse လုပ်ပီး `Document Object Model` ဆိုတဲ့ `DOM` ထဲသိမ်းတယ်။ သူမှာ `DOM Tree `နဲ့ အလုပ်လုပ်ပါတယ်။
 

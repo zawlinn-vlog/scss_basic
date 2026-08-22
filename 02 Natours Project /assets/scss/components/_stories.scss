@@ -1,0 +1,70 @@
+//
+
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mx;
+
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba(var.$color-black, 0.1);
+  background-color: var.$color-white;
+  padding: 6rem 6rem 6rem 9rem;
+  border-radius: 3px;
+  transform: skewX(-12deg);
+
+  @include mx.clearFix;
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    background-color: crimson;
+    transform: translateX(-3rem) skewX(12deg);
+    float: left;
+
+    position: relative;
+
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+
+    img {
+      // width: 100%;
+      height: 100%;
+      transform: translateX(-4rem) scale(1.4);
+      // object-fit: cover;
+      transition: all 0.4s;
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, 20%);
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var.$color-white;
+    opacity: 0;
+    backface-visibility: hidden;
+    transition: all 0.4s;
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(60%);
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+}
