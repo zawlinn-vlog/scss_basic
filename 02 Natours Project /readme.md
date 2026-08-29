@@ -134,6 +134,125 @@ NPM is a simple command line interface that allows developers to `install and ma
 
 <!-- TODO: Add last video link -->
 
+## Responsive Design Strategies
+
+- Start writing CSS for the desktop large screen;
+- Then, media queries shrink design to smaller screens
+- Start writing CSS for mobile devices small screen
+- Then, media queries expand design to a large desktop screen;
+- Forces us to reduce websites and apps to the absolute essentials
+
+```
+
+                max-width(600ox)
+Desktop First ----------------------
+                (width <= 600px)    \
+                                     \
+                         0px ------- 600px ------- 900px ------- 1200px -------- ∞
+                                       \
+                                        \                          min-width(600px)
+                                         ------------------------------------------ Mobile First
+                                                                   (width >= 600px)
+
+
+```
+
+### Is Mobile-first Right for you?
+
+| PROS                                                              | CONS                                                                            |
+| :---------------------------------------------------------------- | :------------------------------------------------------------------------------ |
+| 100% optimised for the mobile experience                          | The desktop version might feel overlay empty and simplistic                     |
+| Reduces websites and apps to the absolute essentials              | More difficult and counterintuitive to develop                                  |
+| Results in smaller, faster and more efficient products            | Less creative freedom, making it more difficult to create distinctive products  |
+| Prioritizes content over aesthetic design, which may be desirable | Clients are used to see a desktop version of the site as a prototype            |
+|                                                                   | Do your users even use the mobile internet? What's the purpose of your website? |
+
+### Selecting Our Breakpoints: A Good Approach
+
+- 0 to 600px (Phone Only)
+- 600px to 900px (Tablet Portrait)
+- 900px to 1200px (Tablet Landscape)
+- 1200px to 1600px (Desktop)
+- \> 1600px (Big Desktop)
+
+## What you will learn in this lecture
+
+- How to use a `powerful Sass mixing `to wirte all our `media queries`.
+- How to use the `@content` and `@if` Sass directives
+- Taking advantage of `Chrome Dev Tools for reponsive design`
+
+## What are responsive images anyway?
+
+> The goal of responsive images is to serve the `right image` to the `reight screen size` and device, in order to avoid downloading unnecessary large images on smaller screens.
+
+1. Resolution Switching (Decrease image resolution on smaller screen)
+   - Screen Size ပေါ်မူတည်ပြီး ပေးပို့သော images ကွာခြားပါတယ်။
+2. Density switching (Half the image resolution on @1x screen)
+   - Screen size ပေါ် မူမတည်ဘဲ pixel density ပေါ်မူတည်ပါတယ်။ ၁လက်မ/၁စင်တီမီတာ ပတ်လည်မှာရှိသော pixel အရည်အတွက်ကို ဆိုလိုခြင်းဖြစ်ပါတယ်။
+   - 1x pixel design/ x1 screen ဆိုတာ 1 logical pixel == 1 physical pixel နဲ့တူတူဖြစ်ပါတယ်။ ဥပမာ 100px ရှိတဲ့ပုံကို screen မှာဖော်ပြမို့ physical 100px လိုအပ်ပါတယ်။ (normal pc screen - low resolution screen)
+   - 2x pixel design/x2 screen ဆိုတာ 1logical pixel == 2 physical pixel လိုအပ်ပါတယ်။ ဥပမာ 100px ရှိတဲ့ပုံကို screen မှာဖော်ပြမို့ physical 200px လိုအပ်ပါတယ်။ ဒါကြောင့် 100px ပုံတစ်ပုံကို ပြပေးမို့ 200px ရှိတဲ့ ပုံဖြစ်မို့ အရေးကြီးပါတယ်။ (retina pc screen/ smart phone - high resolution screen)
+3. Art Direction (Different image on smaller screen)
+   - ပုံတစ်ပုံတည်းကို resolution လျော့ပေးတာမျိုး မဟုတ်ပါဘူး screen size မတူတဲ့အခါ မတူညီတဲ့ image တစ်ပုံကို ပြပေးတာ ဖြစ်ပါတယ်။ image ထဲက အရေးကြီးတဲ့ အပိုင်းကိုသာ ထားပြီး ကျန်တာတွေကို ဖြတ်ထုတ်ပေးတာ ဖြစ်ပါတယ်။
+
+## What you will learn in this lecture
+
+- How to use the `srcset` attribute on the `<img>` and `<source>` elements, together with density descriptors
+- How and why to use the `<picture>` element for art direction.
+- How to write `media queries in HTML`.
+
+### Density Switching
+
+```html
+<img
+  srcset="./assets/img/logo-green-1x.png 1x, ./assets/img/logo-green-2x.png 2x"
+  alt="Full Logo"
+  class="footer__logo"
+/>
+```
+
+low resolution မှာ 1x နဲ့ပြပြီး high resolution မှာ 2x နဲ့ ပြပေးမှာ ဖြစ်ပါတယ်။
+
+### Art Direction
+
+```html
+<picture class="footer__logo">
+  <source
+    srcset="
+      ./assets/img/logo-green-small-1x.png 1x,
+      ./assets/img/logo-green-small-2x.png 2x
+    "
+    media="(max-width: 37.5em)"
+  />
+
+  <!-- Density Switching -->
+
+  <img
+    srcset="
+      ./assets/img/logo-green-1x.png 1x,
+      ./assets/img/logo-green-2x.png 2x
+    "
+    alt="Full Logo"
+    class=""
+  />
+</picture>
+```
+
+## What you will learn in this lecture
+
+- How to allow the browser to decide the best image to download, using the `srcset` attribute, width descriptors, and the `sizes` attribute of the `<img>` element.
+
+## What you will learn in this lecture
+
+- How to implement responsive image in CSS.
+- How to use resolution media queries to target high-resolution screens with 2x
+- How to combine multiple conditions in media queries
+
+## What you will learn in this lecture
+
+- How to use `@supports` feature queries.
+- Implement graceful degradation on selected properties.
+- How to use `backdrop-filter`.
+
 📫 Reach me out!
 
 [![Messenger](https://img.shields.io/badge/Messenger-00B2FF?logo=messenger&logoColor=white)](https://m.me/zawlinn.profile)

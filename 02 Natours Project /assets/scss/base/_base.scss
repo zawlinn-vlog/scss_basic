@@ -19,7 +19,8 @@ FONT SIZE SYSTEM (px)
 
 */
 
-@use "../abstracts/variables" as *;
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mx;
 
 /* ALL Reset */
 *,
@@ -32,6 +33,32 @@ FONT SIZE SYSTEM (px)
 
 html {
   font-size: 62.5%;
+
+  // @media (max-width: 900px) {
+  //   font-size: 50%;
+  // }
+
+  // @media (max-width: 600px) {
+  //   font-size: 50%;
+  // }
+
+  // @include mx.respond-phone {
+  //   font-size: 50%;
+  // }
+
+  @include mx.respond(big-desktop) {
+    font-size: 87.5%; // 1rem == 12px, 12/16 - 75%
+  }
+
+  @include mx.respond(tab-land) {
+    // 1200px
+    font-size: 56.25%; // 1rem == 9px, 9/16 - 56.25%
+  }
+
+  @include mx.respond(tab-port) {
+    // 900px
+    font-size: 50%; // 1rem == 8px, 8/16 - 50%
+  }
 }
 
 body {
@@ -39,9 +66,13 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
-  color: $color-grey-dark;
-  padding: 3rem;
+  color: var.$color-grey-dark;
   box-sizing: border-box;
+  padding: 3rem;
+
+  @include mx.respond(tab-port) {
+    padding: 0;
+  }
 }
 
 h1,
@@ -51,4 +82,9 @@ h4,
 h5,
 h6 {
   line-height: 1;
+}
+
+::selection {
+  background-color: var.$color-primary;
+  color: var.$color-white;
 }

@@ -1,6 +1,7 @@
 //
 
 @use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mx;
 
 .feature {
   &-box {
@@ -11,6 +12,10 @@
     border-radius: 3px;
     box-shadow: 0 1.5rem 4rem rgba(var.$color-black, 0.15);
     transition: transform 0.3s;
+
+    @include mx.respond(tab-port) {
+      padding: 2rem;
+    }
 
     &:hover {
       transform: translateY(-1.5rem);
@@ -29,9 +34,10 @@
       background-clip: text;
       color: transparent;
       font-weight: 700;
-    }
 
-    &__text {
+      @include mx.respond(tab-port) {
+        margin-bottom: 0;
+      }
     }
   }
 }

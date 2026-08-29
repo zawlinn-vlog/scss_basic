@@ -14,12 +14,23 @@
 
   @include mx.clearFix;
 
+  @include mx.respond(tab-port) {
+    width: 100%;
+    padding: 4rem 4rem 4rem 7rem;
+  }
+
+  @include mx.respond(phone) {
+    transform: skewX(0);
+  }
+
   &__shape {
     width: 15rem;
     height: 15rem;
     background-color: crimson;
     transform: translateX(-3rem) skewX(12deg);
     float: left;
+    overflow: hidden;
+    border-radius: 50%;
 
     position: relative;
 
@@ -28,6 +39,18 @@
 
     -webkit-shape-outside: circle(50% at 50% 50%);
     shape-outside: circle(50% at 50% 50%);
+
+    @supports (-webkit-clip-path: circle(50% at 50% 50%)) or
+      (clip-path: circle(50% at 50% 50%)) {
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+
+      border-radius: none;
+    }
+
+    @include mx.respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
 
     img {
       // width: 100%;
@@ -66,5 +89,15 @@
 
   &__text {
     transform: skewX(12deg);
+
+    @include mx.respond(tab-port) {
+      .heading-tertiary {
+        line-height: 1.5;
+      }
+    }
+
+    @include mx.respond(phone) {
+      transform: skewX(0);
+    }
   }
 }

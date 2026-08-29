@@ -1,7 +1,8 @@
 //
 
-@use "./animation" as *;
 @use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mx;
+@use "./animation";
 
 .heading {
   &-primary {
@@ -21,6 +22,11 @@
       animation-duration: 1s;
       animation-timing-function: ease-out;
 
+      @include mx.respond(phone) {
+        letter-spacing: 1rem;
+        font-size: 5rem;
+      }
+
       /* 
     animation-delay: 3s;
     animation-iteration-count: 3;
@@ -37,6 +43,10 @@
       animation-name: moveInRight;
       animation-duration: 1s;
       animation-timing-function: ease-out;
+
+      @include mx.respond(phone) {
+        letter-spacing: 0.5rem;
+      }
     }
   }
 
@@ -63,6 +73,13 @@
     color: transparent;
     //  or
     // -webkit-text-fill-color: transparent;
+
+    @include mx.respond(tab-port) {
+      font-size: 3rem;
+    }
+    @include mx.respond(phone) {
+      font-size: 2.5rem;
+    }
 
     &:hover {
       transform: skewY(2deg) skewX(15deg) scale(1.1);

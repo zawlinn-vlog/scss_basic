@@ -1,6 +1,7 @@
 //
 
 @use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mx;
 
 .card {
   position: relative;
@@ -19,6 +20,7 @@
 
     width: 100%;
     height: inherit;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     color: #fff;
     transition: all 0.8s;
@@ -121,6 +123,7 @@
       box-decoration-break: clone;
       -webkit-box-decoration-break: clone;
       line-height: 1.3;
+
       &--1 {
         background-image: linear-gradient(
           to right,
@@ -189,6 +192,66 @@
     &-value {
       font-size: 6.2rem;
       font-weight: 300;
+    }
+  }
+
+  // MEDIA QUERY
+
+  // @include mx.respond(tab-port) {
+
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+    height: auto;
+    border-radius: 3px;
+    background-color: var.$color-white;
+    box-shadow: 0 1.5rem 4rem rgba(var.$color-black, 0.15);
+
+    &__heading {
+      width: 50%;
+
+      &-span {
+        line-height: 1.4;
+      }
+    }
+
+    &__side {
+      position: relative;
+      height: auto;
+      padding-bottom: 0;
+      box-shadow: none;
+
+      &--back {
+        height: auto;
+        transform: rotate(0);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    &__cta {
+      width: 100%;
+
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      padding: 7rem 4rem 4rem;
+    }
+
+    &__price {
+      &-box {
+        margin-bottom: 3rem;
+      }
+
+      &-value {
+        font-size: 6rem;
+      }
     }
   }
 }

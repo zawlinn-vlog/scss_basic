@@ -1,23 +1,41 @@
 //
 
-@use "../abstracts/variables" as *;
+@use "../abstracts/variables" as var;
 @use "../abstracts/mixins" as mx;
 
 .row {
-  max-width: $grid-width;
+  max-width: var.$grid-width;
   //   margin-inline: auto;
   margin: 0 auto;
 
+  &:not(:last-child) {
+    margin-bottom: var.$gutter-vertical;
+
+    @include mx.respond(tab-port) {
+      margin-bottom: var.$gutter-vertical-sm;
+    }
+  }
+
+  @include mx.respond(tab-port) {
+    max-width: 51rem;
+    padding: 0 3rem;
+  }
+
   @include mx.clearFix;
 
-  &:not(:last-child) {
-    margin-bottom: $gutter-vertical;
-  }
   [class^="col-"] {
     float: left;
 
     &:not(:last-child) {
-      margin-right: $gutter-horizontal;
+      margin-right: var.$gutter-horizontal;
+      @include mx.respond(tab-port) {
+        margin-right: 0 !important;
+        margin-bottom: var.$gutter-vertical-sm;
+      }
+    }
+
+    @include mx.respond(tab-port) {
+      width: 100% !important;
     }
   }
 
@@ -27,7 +45,7 @@
     //
 
     .col-1-of-#{$i} {
-      width: calc((100% - #{$gutter-horizontal * ($i - 1)}) / $i);
+      width: calc((100% - #{var.$gutter-horizontal * ($i - 1)}) / $i);
     }
 
     //
@@ -37,8 +55,8 @@
         @if ($i - 1 >= $j) {
           .col-#{$j}-of-#{$i} {
             width: calc(
-              ($j * ((100% - $gutter-horizontal * ($i - 1)) / $i)) +
-                $gutter-horizontal *
+              ($j * ((100% - var.$gutter-horizontal * ($i - 1)) / $i)) +
+                var.$gutter-horizontal *
                 ($j - 1)
             );
           }
