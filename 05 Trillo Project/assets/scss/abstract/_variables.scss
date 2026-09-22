@@ -1,0 +1,48 @@
+/*
+
+COLORs
+#######################
+primary: #eb2f64;
+primary light : #ff3366
+primary dark : #ba2650
+
+grey light 1: #faf9f9
+grey light 2: #f4f2f2
+grey light 3: #f0eeee
+grey light 4: #ccc
+
+grey dark 1: #333
+grey dark 2: #777
+grey dark 3: #999
+
+*/
+
+$primary: #eb2f64;
+$primary-light: #ff3366;
+$primary-dark: #ba2650;
+$gradient-1: linear-gradient(to right bottom, $primary-light, $primary-dark);
+$shadow-dark: rgba(0, 0, 0, 0.3);
+$light: #fff;
+
+// MEDIA SIDE
+
+$bp-largest: 75em; //1200px
+$bp-large: 68.75em; // 1100px
+$bp-medium: 56.25em; // 900px
+$bp-small: 37.5em; // 600px
+$bp-smallest: 31.25em; // 500px
+
+$colors: (
+  "primary": #eb2f64,
+  "primary_light": $primary-light,
+  "primary_dark": $primary-dark,
+  "light": $light,
+  "grey_light-1": #faf9f9,
+  "grey_light-2": #f4f2f2,
+  "grey_light-3": #f0eeee,
+  "grey_light-4": #ccc,
+  "grey_dark-1": #333,
+  "grey_dark-2": #777,
+  "grey_dark-3": #999,
+  "gradient-1": $gradient-1,
+);

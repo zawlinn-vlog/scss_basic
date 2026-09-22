@@ -1,0 +1,18 @@
+//
+
+@use "../abstract/" as ab;
+
+.container {
+  max-width: 120rem;
+  margin: 8rem auto;
+  background-color: ab.getColor(grey_light-2);
+  box-shadow: 0 2rem 6rem ab.$shadow-dark;
+
+  min-height: 50rem;
+
+  @media only screen and (max-width: ab.$bp-largest) {
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+}
